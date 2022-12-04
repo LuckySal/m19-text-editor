@@ -4,7 +4,8 @@
     "description": "",
     "main": "server.js",
     "engines": {
-        "node": "18.x"
+        "node": "18.x",
+        "npm": "9.x"
     },
     "scripts": {
         "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
