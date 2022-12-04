@@ -25,7 +25,7 @@ module.exports = () => {
                 template: "./index.html",
                 title: "Just Another Text Editor",
             }),
-            
+
             new MiniCssExtractPlugin(),
 
             // Injects our custom service worker
@@ -65,7 +65,7 @@ module.exports = () => {
                 {
                     test: /\.(png|svg|jpg|jpeg|gif)$/,
                     type: "asset/resource",
-                }
+                },
                 {
                     test: /\.m?js$/,
                     exclude: /node_modules/,
