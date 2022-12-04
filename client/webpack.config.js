@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 const { InjectManifest } = require("workbox-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = () => {
     return {
@@ -24,6 +25,8 @@ module.exports = () => {
                 template: "./index.html",
                 title: "Just Another Text Editor",
             }),
+            
+            new MiniCssExtractPlugin(),
 
             // Injects our custom service worker
             new InjectManifest({
@@ -57,8 +60,12 @@ module.exports = () => {
             rules: [
                 {
                     test: /\.css$/i,
-                    use: ["style-loader", "css-loader"],
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
                 },
+                {
+                    test: /\.(png|svg|jpg|jpeg|gif)$/,
+                    type: "asset/resource",
+                }
                 {
                     test: /\.m?js$/,
                     exclude: /node_modules/,
